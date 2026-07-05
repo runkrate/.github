@@ -12,29 +12,28 @@ user, manage services, and keep everything up to date.
 Install the latest release:
 
 ```bash
-curl -fsSL https://get.krate.io | bash
-```
-
-Or pick a build manually from [**releases**](https://github.com/krate-client/releases/releases).
-
-Then install an app for a Linux user:
-
-```bash
-zen software add alice radarr4k
+curl -fsSL https://get.runkrate.com | bash
 ```
 
 Full guides: **[krate.github.io/docs](https://krate.github.io/docs/)**
 
+## Bugs, ideas, and planning
+
+All bug reports and feature requests go through **[hub](https://github.com/krate-client/hub)** — one place for the whole project, tracked on the [org project board](https://github.com/orgs/krate-client/projects).
+
+Component repositories accept **pull requests** only; do not open issues there.
+
 ## Repositories
 
-| Repository                                                           | What it is                                              |
-| -------------------------------------------------------------------- | ------------------------------------------------------- |
-| [**releases**](https://github.com/krate-client/releases)             | Official `krate` `.deb` packages and release manifests  |
-| [**web**](https://github.com/krate-client/web)                       | HarmonyUI — the web dashboard                           |
-| [**official-apps**](https://github.com/krate-client/official-apps)   | Official application catalog (public, read-only mirror) |
-| [**community-apps**](https://github.com/krate-client/community-apps) | Community-contributed applications                      |
-| [**plugins-store**](https://github.com/krate-client/plugins-store)   | ruTorrent plugins and themes bundled in the package     |
-| [**docs**](https://github.com/krate-client/docs)                     | User-facing documentation sources                       |
+| Repository                                                             | What it is                                              |
+| ---------------------------------------------------------------------- | ------------------------------------------------------- |
+| [**hub**](https://github.com/krate-client/hub)                         | Bug reports, feature requests, and planning             |
+| [**releases**](https://github.com/krate-client/krate)                  | Official `krate` `.deb` packages and release manifests  |
+| [**web**](https://github.com/krate-client/web)                         | HarmonyUI — the web dashboard                           |
+| [**apps-official**](https://github.com/krate-client/apps-official)     | Official application catalog (public, read-only mirror) |
+| [**apps-community**](https://github.com/krate-client/apps-community)   | Community-contributed applications                      |
+| [**apps-extensions**](https://github.com/krate-client/apps-extensions) | Optional add-ons and plugins for KRATE applications     |
+| [**docs**](https://github.com/krate-client/docs)                       | User-facing documentation sources                       |
 
 ## How apps work
 
@@ -44,15 +43,11 @@ inside the `krate` package. Before running any handler, `zen` verifies its
 SHA-256 checksum and RSA signature against the signed `CATALOG.json` bundled with
 your installation.
 
-- Browse what's available: [**official-apps**](https://github.com/krate-client/official-apps)
-- Propose a community app: fork [**community-apps**](https://github.com/krate-client/community-apps) and open a pull request
-- Report or fix an official app: edit [**official-apps-unencrypted**](https://github.com/krate-client/official-apps-unencrypted)
-
 ## Links
 
 - Website & docs: [krate.github.io](https://krate.github.io/)
 - Documentation: [krate.github.io/docs](https://krate.github.io/docs/)
-- Releases: [github.com/krate-client/releases](https://github.com/krate-client/releases/releases)
+- Releases: [github.com/krate-client/krate](https://github.com/krate-client/krate/releases)
 
 ---
 
