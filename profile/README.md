@@ -12,7 +12,7 @@ user, manage services, and keep everything up to date.
 Install the latest release:
 
 ```bash
-curl -fsSL https://get.runkrate.com | bash
+curl -fsSL https://raw.githubusercontent.com/krate-client/krate/main/bootstrap.sh | sudo bash
 ```
 
 Full guides: **[krate.github.io/docs](https://krate.github.io/docs/)**
