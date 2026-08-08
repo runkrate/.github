@@ -12,14 +12,14 @@ user, manage services, and keep everything up to date.
 Install the latest release:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/krate-client/krate/main/bootstrap.sh | sudo bash
+curl -fsSL https://raw.githubusercontent.com/runkrate/krate/main/bootstrap.sh | sudo bash
 ```
 
 Full guides: **[krate.github.io/docs](https://krate.github.io/docs/)**
 
 ## Bugs, ideas, and planning
 
-All bug reports and feature requests go through **[hub](https://github.com/krate-client/hub)** — one place for the whole project, tracked on the [org project board](https://github.com/orgs/krate-client/projects).
+All bug reports and feature requests go through **[hub](https://github.com/runkrate/hub)** — one place for the whole project, tracked on the [org project board](https://github.com/orgs/runkrate/projects).
 
 Component repositories accept **pull requests** only; do not open issues there.
 
@@ -27,13 +27,13 @@ Component repositories accept **pull requests** only; do not open issues there.
 
 | Repository                                                             | What it is                                              |
 | ---------------------------------------------------------------------- | ------------------------------------------------------- |
-| [**hub**](https://github.com/krate-client/hub)                         | Bug reports, feature requests, and planning             |
-| [**releases**](https://github.com/krate-client/krate)                  | Official `krate` `.deb` packages and release manifests  |
-| [**web**](https://github.com/krate-client/web)                         | HarmonyUI — the web dashboard                           |
-| [**apps-official**](https://github.com/krate-client/apps-official)     | Official application catalog (public, read-only mirror) |
-| [**apps-community**](https://github.com/krate-client/apps-community)   | Community-contributed applications                      |
-| [**apps-extensions**](https://github.com/krate-client/apps-extensions) | Optional add-ons and plugins for KRATE applications     |
-| [**docs**](https://github.com/krate-client/docs)                       | User-facing documentation sources                       |
+| [**hub**](https://github.com/runkrate/hub)                         | Bug reports, feature requests, and planning             |
+| [**releases**](https://github.com/runkrate/krate)                  | Official `krate` `.deb` packages and release manifests  |
+| [**web**](https://github.com/runkrate/web)                         | HarmonyUI — the web dashboard                           |
+| [**apps-official**](https://github.com/runkrate/apps-official)     | Official application catalog (public, read-only mirror) |
+| [**apps-community**](https://github.com/runkrate/apps-community)   | Community-contributed applications                      |
+| [**apps-extensions**](https://github.com/runkrate/apps-extensions) | Optional add-ons and plugins for KRATE applications     |
+| [**docs**](https://github.com/runkrate/docs)                       | User-facing documentation sources                       |
 
 ## How apps work
 
@@ -47,7 +47,7 @@ your installation.
 
 - Website & docs: [krate.github.io](https://krate.github.io/)
 - Documentation: [krate.github.io/docs](https://krate.github.io/docs/)
-- Releases: [github.com/krate-client/krate](https://github.com/krate-client/krate/releases)
+- Releases: [github.com/runkrate/krate](https://github.com/runkrate/krate/releases)
 
 ---
 
