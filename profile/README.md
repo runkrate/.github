@@ -15,7 +15,7 @@ Install the latest release:
 curl -fsSL https://raw.githubusercontent.com/runkrate/krate/main/bootstrap.sh | sudo bash
 ```
 
-Full guides: **[krate.github.io/docs](https://krate.github.io/docs/)**
+Full guides: **[runkrate/docs](https://github.com/runkrate/docs)**
 
 ## Bugs, ideas, and planning
 
@@ -25,15 +25,26 @@ Component repositories accept **pull requests** only; do not open issues there.
 
 ## Repositories
 
-| Repository                                                             | What it is                                              |
-| ---------------------------------------------------------------------- | ------------------------------------------------------- |
+| Repository                                                         | What it is                                              |
+| ------------------------------------------------------------------ | ------------------------------------------------------- |
 | [**hub**](https://github.com/runkrate/hub)                         | Bug reports, feature requests, and planning             |
-| [**releases**](https://github.com/runkrate/krate)                  | Official `krate` `.deb` packages and release manifests  |
+| [**krate**](https://github.com/runkrate/krate)                     | Official `krate` `.deb` packages and release manifests  |
+| [**console**](https://github.com/runkrate/console)                 | `zen` / `zenfw` CLI and runtime                         |
+| [**setup**](https://github.com/runkrate/setup)                     | First-install wizard                                    |
 | [**web**](https://github.com/runkrate/web)                         | HarmonyUI — the web dashboard                           |
-| [**apps-official**](https://github.com/runkrate/apps-official)     | Official application catalog (public, read-only mirror) |
-| [**apps-community**](https://github.com/runkrate/apps-community)   | Community-contributed applications                      |
-| [**apps-extensions**](https://github.com/runkrate/apps-extensions) | Optional add-ons and plugins for KRATE applications     |
 | [**docs**](https://github.com/runkrate/docs)                       | User-facing documentation sources                       |
+| [**sentinel**](https://github.com/runkrate/sentinel)               | GitHub → Discord activity bot (Cloudflare Workers)      |
+
+Application catalogs and binary packages live in sibling orgs:
+
+| Organization / repo                                                    | What it is                                              |
+| ---------------------------------------------------------------------- | ------------------------------------------------------- |
+| [`krate-apps/sources`](https://github.com/krate-apps/sources)          | Official app handlers (authoring; encrypted publish)    |
+| [`krate-apps/core`](https://github.com/krate-apps/core)                | Official apps mirror (public / package catalog)         |
+| [`krate-apps/community`](https://github.com/krate-apps/community)      | Community-contributed applications                      |
+| [`krate-apps/extensions`](https://github.com/krate-apps/extensions)    | Optional add-ons and plugins                            |
+| [`krate-apps/snapshots`](https://github.com/krate-apps/snapshots)      | Signed `BINARIES_CATALOG.json` + mirrored `.deb`s       |
+| [`krate-tools/scripts`](https://github.com/krate-tools/scripts)        | Release CI tooling (`.deb` build, catalog, GitHub helpers) |
 
 ## How apps work
 
@@ -45,10 +56,9 @@ your installation.
 
 ## Links
 
-- Website & docs: [krate.github.io](https://krate.github.io/)
-- Documentation: [krate.github.io/docs](https://krate.github.io/docs/)
+- Documentation: [github.com/runkrate/docs](https://github.com/runkrate/docs)
 - Releases: [github.com/runkrate/krate](https://github.com/runkrate/krate/releases)
 
 ---
 
-*This organization hosts the open-source client side of KRATE.*
+*This organization hosts the open-source KRATE client stack and related product repos.*
