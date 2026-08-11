@@ -1,0 +1,60 @@
+name: Sync README header
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "snippets/readme-header.md"
+      - "snippets/readme-sync.json"
+      - "assets/logo/**"
+      - "scripts/sync_readme_header.py"
+      - ".github/workflows/sync-readme-header.yml"
+  workflow_dispatch:
+    inputs:
+      seed:
+        description: "Insert header markers when missing"
+        type: boolean
+        default: false
+      dry_run:
+        description: "Compute diffs only (no push / PR)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout .github
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Sync header into target repositories
+        env:
+          README_SYNC_TOKEN: ${{ secrets.README_SYNC_TOKEN }}
+          GITHUB_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          if [ -z "${README_SYNC_TOKEN:-}" ]; then
+            echo "Missing secret README_SYNC_TOKEN" >&2
+            echo "Create a fine-grained PAT (or GitHub App token) with" >&2
+            echo "contents:write + pull_requests:write on runkrate and krate-apps," >&2
+            echo "then add it as repo secret README_SYNC_TOKEN on runkrate/.github." >&2
+            exit 1
+          fi
+          ARGS=()
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            if [ "${{ inputs.seed }}" = "true" ]; then
+              ARGS+=(--seed)
+            fi
+            if [ "${{ inputs.dry_run }}" = "true" ]; then
+              ARGS+=(--dry-run)
+            fi
+          fi
+          python3 scripts/sync_readme_header.py "${ARGS[@]}"

@@ -1,64 +1,106 @@
+<!-- KRATE-README-HEADER:START -->
+<p align="center">
+  <a href="https://github.com/runkrate">
+    <img src="https://raw.githubusercontent.com/runkrate/.github/main/assets/logo/logo.png" alt="KRATE" width="128" />
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/runkrate/krate/stargazers"><img src="https://img.shields.io/github/stars/runkrate/krate?style=flat-square&logo=github" alt="GitHub stars" /></a>
+  <a href="https://github.com/runkrate/hub/issues"><img src="https://img.shields.io/github/issues-search/runkrate/hub?query=is%3Aopen&style=flat-square&label=issues%2FPRs" alt="Open issues and pull requests" /></a>
+  <a href="https://github.com/runkrate/krate/releases"><img src="https://img.shields.io/github/v/release/runkrate/krate?style=flat-square&label=version" alt="Current version" /></a>
+  <a href="https://github.com/runkrate/krate/blob/main/LICENSE"><img src="https://img.shields.io/github/license/runkrate/krate?style=flat-square" alt="License" /></a>
+</p>
+
+<p align="center">
+  <a href="https://runkrate.com"><img src="https://img.shields.io/badge/Website-runkrate.com-0A66C2?style=flat-square" alt="Website" /></a>
+  <a href="https://runkrate.com/docs"><img src="https://img.shields.io/badge/Docs-runkrate.com%2Fdocs-111827?style=flat-square" alt="Docs" /></a>
+  <a href="https://ko-fi.com/krate"><img src="https://img.shields.io/badge/Ko--fi-Support-FF5E5B?style=flat-square&logo=ko-fi&logoColor=white" alt="Ko-fi" /></a>
+  <a href="https://buymeacoffee.com/krate"><img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-Support-FFDD00?style=flat-square&logo=buymeacoffee&logoColor=black" alt="Buy Me a Coffee" /></a>
+</p>
+<!-- KRATE-README-HEADER:END -->
+
 # KRATE
 
-**Self-hosted media and automation for Linux servers.**
+**Unified Server and Application Management Platform**
 
-KRATE is a Debian-based stack that installs and runs media servers, *arr tools,
-download clients, dashboards, and more — from a single command line (`zen`) and a
-web interface (HarmonyUI). One package, one workflow: add users, deploy apps per
-user, manage services, and keep everything up to date.
+KRATE transforms a standard Debian server into a fully managed ecosystem for media and automation stacks—including Jellyfin, the *arr suite, download clients, and associated services.
 
-## Get started
+Engineered for simplicity and scale, KRATE provides everything required to operate your infrastructure from a single, cohesive environment. Administrate your system via **zen**, a highly responsive Command-Line Interface (CLI), or utilize **HarmonyUI** for comprehensive control through an intuitive web dashboard. Seamlessly manage applications, system services, user access, storage arrays, and updates without the overhead of maintaining disparate management tools.
 
-Install the latest release:
+**Deploy Once. Manage Centrally.**
 
-```bash
-curl -fsSL https://raw.githubusercontent.com/runkrate/krate/main/bootstrap.sh | sudo bash
-```
+*Official KRATE distributions are exclusively published via [`runkrate/krate`](https://github.com/runkrate/krate). All other organizational repositories contain source code, application catalogs, build infrastructure, and extensions; they do not serve as alternative installation endpoints.*
 
-Full guides: **[runkrate/docs](https://github.com/runkrate/docs)**
+<br />
 
-## Bugs, ideas, and planning
+<p align="center">
+  <a href="https://github.com/runkrate/krate#install"><strong>Install</strong></a>
+  &nbsp;·&nbsp;
+  <a href="https://runkrate.com/docs"><strong>Documentation</strong></a>
+  &nbsp;·&nbsp;
+  <a href="https://github.com/runkrate/krate/releases"><strong>Releases</strong></a>
+  &nbsp;·&nbsp;
+  <a href="https://github.com/runkrate/hub"><strong>Hub</strong></a>
+</p>
 
-All bug reports and feature requests go through **[hub](https://github.com/runkrate/hub)** — one place for the whole project, tracked on the [org project board](https://github.com/orgs/runkrate/projects).
-
-Component repositories accept **pull requests** only; do not open issues there.
-
-## Repositories
-
-| Repository                                                         | What it is                                              |
-| ------------------------------------------------------------------ | ------------------------------------------------------- |
-| [**hub**](https://github.com/runkrate/hub)                         | Bug reports, feature requests, and planning             |
-| [**krate**](https://github.com/runkrate/krate)                     | Official `krate` `.deb` packages and release manifests  |
-| [**console**](https://github.com/runkrate/console)                 | `zen` / `zenfw` CLI and runtime                         |
-| [**setup**](https://github.com/runkrate/setup)                     | First-install wizard                                    |
-| [**web**](https://github.com/runkrate/web)                         | HarmonyUI — the web dashboard                           |
-| [**docs**](https://github.com/runkrate/docs)                       | User-facing documentation sources                       |
-| [**sentinel**](https://github.com/runkrate/sentinel)               | GitHub → Discord activity bot (Cloudflare Workers)      |
-
-Application catalogs and binary packages live in sibling orgs:
-
-| Organization / repo                                                    | What it is                                              |
-| ---------------------------------------------------------------------- | ------------------------------------------------------- |
-| [`krate-apps/sources`](https://github.com/krate-apps/sources)          | Official app handlers (authoring; encrypted publish)    |
-| [`krate-apps/core`](https://github.com/krate-apps/core)                | Official apps mirror (public / package catalog)         |
-| [`krate-apps/community`](https://github.com/krate-apps/community)      | Community-contributed applications                      |
-| [`krate-apps/extensions`](https://github.com/krate-apps/extensions)    | Optional add-ons and plugins                            |
-| [`krate-apps/snapshots`](https://github.com/krate-apps/snapshots)      | Signed `BINARIES_CATALOG.json` + mirrored `.deb`s       |
-| [`krate-tools/scripts`](https://github.com/krate-tools/scripts)        | Release CI tooling (`.deb` build, catalog, GitHub helpers) |
-
-## How apps work
-
-Applications are folders with metadata (`meta.yaml`, `manifest.yaml`) and a
-lifecycle handler. KRATE ships two catalogs — **official** and **community** —
-inside the `krate` package. Before running any handler, `zen` verifies its
-SHA-256 checksum and RSA signature against the signed `CATALOG.json` bundled with
-your installation.
-
-## Links
-
-- Documentation: [github.com/runkrate/docs](https://github.com/runkrate/docs)
-- Releases: [github.com/runkrate/krate](https://github.com/runkrate/krate/releases)
+<p align="center">
+  <sub>Supported today: Debian&nbsp;13 (trixie), amd64 &nbsp;·&nbsp; Additional platforms planned</sub>
+</p>
 
 ---
 
-*This organization hosts the open-source KRATE client stack and related product repos.*
+## System Requirements
+
+| Requirement          | Specification                                                          |
+| -------------------- | ---------------------------------------------------------------------- |
+| **Operating System** | Debian 13 (Trixie)                                                     |
+| **Architecture**     | amd64                                                                  |
+| **Roadmap**          | Support for additional operating systems and architectures is planned. |
+
+## Getting Started
+
+For comprehensive installation procedures, please refer to the [installation guide within the `runkrate/krate` repository](https://github.com/runkrate/krate#install).
+
+**Documentation:** [runkrate.com/docs](https://runkrate.com/docs)
+
+## Issue Tracking & Contributions
+
+Bug reports, feature requests, and project planning are centralized in **[Hub](https://github.com/runkrate/hub)**. Progress is tracked on the [organization project board](https://github.com/orgs/runkrate/projects).
+
+Component repositories accept **pull requests** only. See the [Contributing Guidelines](https://github.com/runkrate/docs/blob/main/CONTRIBUTING.md).
+
+## Project Architecture & Repositories
+
+### Core Infrastructure
+
+| Repository                                         | Description                                                           |
+| -------------------------------------------------- | --------------------------------------------------------------------- |
+| **[hub](https://github.com/runkrate/hub)**         | Centralized issue tracking, feature requests, and project planning    |
+| **[krate](https://github.com/runkrate/krate)**     | Official release distribution (`.deb` packages, checksums, manifests) |
+| **[console](https://github.com/runkrate/console)** | Source for the `zen` and `zenfw` CLI utilities                        |
+| **[setup](https://github.com/runkrate/setup)**     | Source for the initial configuration wizard                           |
+| **[web](https://github.com/runkrate/web)**         | Source for the HarmonyUI web interface                                |
+| **[docs](https://github.com/runkrate/docs)**       | Source for the [official documentation](https://runkrate.com/docs)    |
+
+### Application Catalogs
+
+Application catalogs and related packages are maintained under **[krate-apps](https://github.com/krate-apps)**:
+
+| Repository                                               | Description                                                      |
+| -------------------------------------------------------- | ---------------------------------------------------------------- |
+| [`core`](https://github.com/krate-apps/core)             | Official applications supported and maintained by the KRATE team |
+| [`community`](https://github.com/krate-apps/community)   | Applications contributed and maintained by the community         |
+| [`extensions`](https://github.com/krate-apps/extensions) | Optional third-party plugins and themes (e.g. ruTorrent)         |
+| [`snapshots`](https://github.com/krate-apps/snapshots)   | Signed binary catalog and mirrored `.deb` packages               |
+
+*Maintainer resources:* release automation at [`krate-tools/scripts`](https://github.com/krate-tools/scripts).
+
+## Supporting KRATE
+
+KRATE is an independent open-source project. Sponsorships help fund infrastructure, releases, and continued maintenance of the platform and official apps.
+
+- **Ko-fi:** [ko-fi.com/krate](https://ko-fi.com/krate)
+- **Buy Me a Coffee:** [buymeacoffee.com/krate](https://buymeacoffee.com/krate)
+
+Details: [`FUNDING.md`](https://github.com/runkrate/.github/blob/main/FUNDING.md)

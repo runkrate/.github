@@ -1,0 +1,17 @@
+{
+  "header_file": "snippets/readme-header.md",
+  "marker_start": "<!-- KRATE-README-HEADER:START -->",
+  "marker_end": "<!-- KRATE-README-HEADER:END -->",
+  "targets": [
+    { "owner": "runkrate", "repo": "hub", "branch": "develop", "path": "README.md" },
+    { "owner": "runkrate", "repo": "krate", "branch": "main", "path": "README.md" },
+    { "owner": "runkrate", "repo": "console", "branch": "develop", "path": "README.md" },
+    { "owner": "runkrate", "repo": "setup", "branch": "develop", "path": "README.md" },
+    { "owner": "runkrate", "repo": "web", "branch": "develop", "path": "README.md" },
+    { "owner": "runkrate", "repo": "docs", "branch": "main", "path": "README.md" },
+    { "owner": "runkrate", "repo": "sentinel", "branch": "main", "path": "README.md" },
+    { "owner": "krate-apps", "repo": "core", "branch": "develop", "path": "README.md" },
+    { "owner": "krate-apps", "repo": "community", "branch": "main", "path": "README.md" },
+    { "owner": "krate-apps", "repo": "extensions", "branch": "develop", "path": "README.md" }
+  ]
+}
