@@ -161,10 +161,7 @@ def sync_target(
             ],
             env=gh_env(tok),
         )
-        run(
-            ["git", "remote", "set-url", "origin", f"https://github.com/{full}.git"],
-            cwd=work,
-        )
+        # Keep the tokenized origin URL for later push (do not scrub to bare https).
 
         readme_path = work / path
         if not readme_path.is_file():
