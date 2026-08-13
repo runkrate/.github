@@ -183,13 +183,16 @@ def sync_target(
         readme_path.write_text(updated, encoding="utf-8")
         head_branch = "chore/sync-readme-header"
         run(["git", "checkout", "-B", head_branch], cwd=work)
-        run(["git", "config", "user.name", "krate-readme-sync[bot]"], cwd=work)
+        run(
+            ["git", "config", "user.name", "krate-release-bot[bot]"],
+            cwd=work,
+        )
         run(
             [
                 "git",
                 "config",
                 "user.email",
-                "krate-readme-sync[bot]@users.noreply.github.com",
+                "4030630+krate-release-bot[bot]@users.noreply.github.com",
             ],
             cwd=work,
         )
