@@ -1,14 +1,12 @@
 # Supporting KRATE
 
-KRATE is built and maintained as an independent open-source project. Financial support helps cover infrastructure, release engineering, and ongoing development of the platform, official apps, and documentation.
+KRATE is primarily funded through its paid licenses. That model keeps the open-source platform maintained and evolving.
 
-If KRATE is useful to you — on a homelab or in production — consider sponsoring the project. Every contribution helps keep releases moving and the stack maintained.
+If you'd like to support the project beyond a license — for example with a one-time contribution — you can use:
 
-## Ways to support
-
-| Platform  | Link                                          |
-| --------- | --------------------------------------------- |
-| **Ko-fi** | [ko-fi.com/krate](https://ko-fi.com/runkrate) |
+| Platform | Link |
+| -------- | ---- |
+| **Ko-fi** | [ko-fi.com/krate](https://ko-fi.com/krate) |
 
 You can also star [`runkrate/krate`](https://github.com/runkrate/krate), open thoughtful issues on [`hub`](https://github.com/runkrate/hub), and contribute pull requests to the component repositories.
 

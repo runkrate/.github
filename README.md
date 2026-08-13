@@ -7,7 +7,7 @@ organization profile and shared GitHub configuration.
 | ---- | ------- |
 | [`profile/README.md`](profile/README.md) | Organization profile README (GitHub org landing page) |
 | [`FUNDING.md`](FUNDING.md) | How to support / sponsor KRATE |
-| [`FUNDING.yml`](FUNDING.yml) | Org-default GitHub Sponsor button (Ko-fi, Buy Me a Coffee) |
+| [`FUNDING.yml`](FUNDING.yml) | Org-default GitHub Sponsor button (Ko-fi) |
 | [`assets/logo/`](assets/logo/) | Shared KRATE logo assets |
 | [`snippets/readme-header.md`](snippets/readme-header.md) | Shared visual README header (logo + badges) |
 | [`snippets/readme-sync.json`](snippets/readme-sync.json) | Target repositories for header sync |
