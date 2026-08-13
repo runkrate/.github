@@ -26,15 +26,15 @@ Product READMEs include a synced block between:
 On changes to the header or logo, [`.github/workflows/sync-readme-header.yml`](.github/workflows/sync-readme-header.yml)
 opens a PR on each target listed in `snippets/readme-sync.json`.
 
-### Secret: `README_SYNC_TOKEN`
+### Auth (Krate Release Bot)
 
-Create a fine-grained PAT (or GitHub App installation token) with:
+CI mints GitHub App installation tokens via **Krate Release Bot**
+(`KRATE_RELEASE_BOT_APP_ID` + `KRATE_RELEASE_BOT_PRIVATE_KEY` org secrets/vars on
+**runkrate**). No separate `README_SYNC_TOKEN` PAT is required.
 
-- `contents: write`
-- `pull_requests: write`
+The app must be installed on **runkrate** and **krate-apps** with
+`contents: write` and `pull_requests: write`.
 
-on organizations **`runkrate`** and **`krate-apps`** (all target repos).
+Optional override: repository secret `README_SYNC_TOKEN` (single PAT for all targets).
 
-Add it as a **repository secret** named `README_SYNC_TOKEN` on `runkrate/.github`.
-
-Manual run: Actions → **Sync README header** → `workflow_dispatch` (optional `--seed` / dry-run inputs).
+Manual run: Actions → **Sync README header** → `workflow_dispatch` (optional seed / dry-run).

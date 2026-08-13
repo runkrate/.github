@@ -6,8 +6,9 @@ Usage:
   python3 scripts/sync_readme_header.py --apply-file /path/to/README.md [--seed]
 
 Environment:
-  README_SYNC_TOKEN or GH_TOKEN / GITHUB_TOKEN — token with contents + pull_requests
-    write on all target orgs/repos.
+  README_SYNC_TOKEN_RUNKRATE / README_SYNC_TOKEN_KRATE_APPS — preferred (GitHub App
+    installation tokens per org).
+  README_SYNC_TOKEN or GH_TOKEN / GITHUB_TOKEN — single-token fallback.
   GITHUB_SHA (optional) — source commit referenced in PR bodies.
 """
 
@@ -88,13 +89,37 @@ def run(
     )
 
 
-def token() -> str:
-    for key in ("README_SYNC_TOKEN", "GH_TOKEN", "GITHUB_TOKEN"):
+def token_for(owner: str) -> str:
+    """Resolve a write token for the target org (App tokens preferred)."""
+    owner_key = owner.strip().upper().replace("-", "_")
+    for key in (
+        f"README_SYNC_TOKEN_{owner_key}",
+        "README_SYNC_TOKEN",
+        "GH_TOKEN",
+        "GITHUB_TOKEN",
+    ):
         value = os.environ.get(key, "").strip()
         if value:
             return value
     raise SystemExit(
-        "Missing token: set README_SYNC_TOKEN (or GH_TOKEN / GITHUB_TOKEN)"
+        f"Missing token for owner={owner}: set README_SYNC_TOKEN_{owner_key} "
+        "(or README_SYNC_TOKEN / GH_TOKEN / GITHUB_TOKEN)"
+    )
+
+
+def token() -> str:
+    """Legacy single-token helper (local --apply-file does not need it)."""
+    for key in ("README_SYNC_TOKEN", "GH_TOKEN", "GITHUB_TOKEN"):
+        value = os.environ.get(key, "").strip()
+        if value:
+            return value
+    # Prefer any org-scoped token if present
+    for key, value in os.environ.items():
+        if key.startswith("README_SYNC_TOKEN_") and value.strip():
+            return value.strip()
+    raise SystemExit(
+        "Missing token: set README_SYNC_TOKEN_RUNKRATE / README_SYNC_TOKEN_KRATE_APPS "
+        "(or README_SYNC_TOKEN / GH_TOKEN / GITHUB_TOKEN)"
     )
 
 
@@ -290,7 +315,6 @@ def main() -> int:
         apply_local_file(args.apply_file, header, start, end, seed=args.seed)
         return 0
 
-    tok = token()
     source_sha = os.environ.get("GITHUB_SHA", "").strip()
     errors: list[str] = []
 
@@ -303,7 +327,7 @@ def main() -> int:
                 end,
                 seed=args.seed,
                 dry_run=args.dry_run,
-                tok=tok,
+                tok=token_for(target["owner"]),
                 source_sha=source_sha,
             )
         except Exception as exc:  # noqa: BLE001 — collect per-target failures

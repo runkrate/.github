@@ -35,19 +35,31 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: App token (runkrate)
+        id: token-runkrate
+        uses: actions/create-github-app-token@v3
+        with:
+          app-id: ${{ vars.KRATE_RELEASE_BOT_APP_ID || secrets.KRATE_RELEASE_BOT_APP_ID }}
+          private-key: ${{ secrets.KRATE_RELEASE_BOT_PRIVATE_KEY }}
+          owner: runkrate
+
+      - name: App token (krate-apps)
+        id: token-krate-apps
+        uses: actions/create-github-app-token@v3
+        with:
+          app-id: ${{ vars.KRATE_RELEASE_BOT_APP_ID || secrets.KRATE_RELEASE_BOT_APP_ID }}
+          private-key: ${{ secrets.KRATE_RELEASE_BOT_PRIVATE_KEY }}
+          owner: krate-apps
+
       - name: Sync header into target repositories
         env:
+          README_SYNC_TOKEN_RUNKRATE: ${{ steps.token-runkrate.outputs.token }}
+          README_SYNC_TOKEN_KRATE_APPS: ${{ steps.token-krate-apps.outputs.token }}
+          # Optional legacy override
           README_SYNC_TOKEN: ${{ secrets.README_SYNC_TOKEN }}
           GITHUB_SHA: ${{ github.sha }}
         run: |
           set -euo pipefail
-          if [ -z "${README_SYNC_TOKEN:-}" ]; then
-            echo "Missing secret README_SYNC_TOKEN" >&2
-            echo "Create a fine-grained PAT (or GitHub App token) with" >&2
-            echo "contents:write + pull_requests:write on runkrate and krate-apps," >&2
-            echo "then add it as repo secret README_SYNC_TOKEN on runkrate/.github." >&2
-            exit 1
-          fi
           ARGS=()
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             if [ "${{ inputs.seed }}" = "true" ]; then
